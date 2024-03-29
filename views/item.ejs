@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= item.name %></h1>
+  <ul style="list-style-type: none;">
+    <li>Description: <%= item.description %></li>
+    <br>
+    <li>Price: <%= item.price %></li>
+    <br>
+    <li>Quantity: <%= item.quantity %></li>
+    <br>
+    <li><img src="<%= item.url %>" style="width:200px"></li>
+    <br>
+  </ul>
+  <form method="POST" action="/item/<%= item._id %>/update">
+    <h3>Update Item</h3>
+    <label>Item Name</label>
+    <br>
+    <input type="text" name="user" value="<%= item.name %>">
+    <br>
+    <label>Item Category</label>
+    <br>
+    <select name="category" id="category">
+    <% categories.forEach(function(category) { %>
+      <option value="<%= category._id %>"><%= category.name %></option>
+    <% }); %>
+  </select>
+    <br>
+    <label>Item Description</label>
+    <br>
+    <textarea type="text" name="description" style="width: 100%; height:100px"><%= item.description %></textarea>
+    <br>
+    <label>Item Price</label>
+    <br>
+    <input type="text" name="price" value="<%= item.price %>">
+    <br>
+    <label>Item Quantity</label>
+    <br>
+    <input type="text" name="quantity" value="<%= item.quantity %>">
+    <br>
+    <label>Item Image URL</label>
+    <br>
+    <input type="text" name="url" value="<%= item.url %>" style="width:100%">
+    <br>
+    <button type="submit">Update</button>
+</form>
+
+      <script>
+        document.getElementById('category').value = '<%= item.category %>';
+      </script>
+</body>
+
+</html>
