@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const category_controller = require("../controllers/categoryController");
+const item_controller = require("../controllers/itemController");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.redirect("/category");
-});
+
+// Get all categories
+router.get("/", category_controller.index);
+
+// Get all items in the category
+router.get("/category/:id", item_controller.display);
+
 
 module.exports = router;

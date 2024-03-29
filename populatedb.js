@@ -1,12 +1,3 @@
-#! /usr/bin/env node
-
-console.log(
-    'This script populates some test books, authors, genres and bookinstances to your database. Specified database as argument - e.g.: node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority"'
-);
-
-// Get arguments passed on command line
-const userArgs = process.argv.slice(2);
-
 const Item = require("./models/item");
 const Category = require("./models/category");
 const dotenv = require('dotenv').config()
@@ -31,9 +22,6 @@ async function main() {
     mongoose.connection.close();
 }
 
-// We pass the index to the ...Create functions so that, for example,
-// genre[0] will always be the Fantasy genre, regardless of the order
-// in which the elements of promise.all's argument complete.
 async function categoryCreate(index, name, description, url) {
     const category = new Category({ name: name, description: description, url: url });
     await category.save();

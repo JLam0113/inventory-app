@@ -7,6 +7,6 @@ exports.index = asyncHandler(async (req, res, next) => {
     console.log(allCategories);
     res.render("category_list", {
       title: "Category List",
-      index: allCategories,
+      categories: allCategories,
     });
   });
