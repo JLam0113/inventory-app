@@ -14,6 +14,32 @@
       <a href="category/<%= category._id %>"><%= category.name %></a>
       <br>
     <% }); %>
+    <br>
+    <br>
+    <form id="createCategory" method="POST" action="/category/create">
+      <h3>Create Category</h3>
+      <label>Category Name</label>
+      <br>
+      <input type="text" name="name" value="">
+      <br>
+      <label>Category Description</label>
+      <br>
+      <textarea type="text" name="description" style="width: 100%; height:100px"></textarea>
+      <br>
+      <label>Category URL</label>
+      <br>
+      <input type="text" id="inputURL" style="width: 100%;">
+      <input type="hidden" name="url" id="url">
+      <br>
+      <button type="submit" onClick="submit()">Update</button>
+  </form>
+
+  <script>
+    function submit(){
+      document.getElementById("url").value = encodeURIComponent(document.getElementById("inputURL").value);
+      document.getElementById("createCategory").submit();
+    }
+  </script>
 </body>
 
 </html>

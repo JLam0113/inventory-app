@@ -40,8 +40,6 @@ exports.update = [
       quantity: parseInt(req.body.quantity),
       _id: req.params.id,
     });
-    console.log(req.params.id);
-    console.log(item);
 
     if (!errors.isEmpty()) {
       // There are errors.
@@ -52,5 +50,6 @@ exports.update = [
     }
     else {
       await Item.findByIdAndUpdate(req.params.id, item, {});
+      res.redirect('back');
     }
     }),];
