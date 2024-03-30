@@ -22,5 +22,7 @@ router.get("/item/:id", item_controller.display);
 // Update item
 router.post("/item/:id/update", item_controller.update);
 
+// Create item
+router.post("/item/create", item_controller.create);
 
 module.exports = router;

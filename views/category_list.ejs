@@ -16,7 +16,7 @@
     <% }); %>
     <br>
     <br>
-    <form id="createCategory" method="POST" action="/category/create">
+    <form id="createCategory" method="POST" action="/category/create" onsubmit="event.preventDefault(); formSubmit()">
       <h3>Create Category</h3>
       <label>Category Name</label>
       <br>
@@ -35,7 +35,7 @@
   </form>
 
   <script>
-    function submit(){
+    function formSubmit(){
       document.getElementById("url").value = encodeURIComponent(document.getElementById("inputURL").value);
       document.getElementById("createCategory").submit();
     }
