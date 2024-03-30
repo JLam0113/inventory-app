@@ -20,6 +20,11 @@
     <li><img src="<%= item.url %>" style="width:200px"></li>
     <br>
   </ul>
+  <br>
+  <form method="POST" action="/item/<%= item._id %>/delete">
+    <button type="submit">Delete Item</button>
+  </form>
+
   <form method="POST" action="/item/<%= item._id %>/update">
     <h3>Update Item</h3>
     <label>Item Name</label>

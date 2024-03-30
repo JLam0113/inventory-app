@@ -90,3 +90,8 @@ exports.create = [
       res.redirect('back');
     }
   }),];
+
+exports.delete = asyncHandler(async (req, res, next) => {
+  await Item.findByIdAndDelete(req.params.id);
+  res.redirect('/');
+});
